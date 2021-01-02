@@ -1,15 +1,12 @@
 package com.example.vitalsigns;
 
 import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -37,8 +34,6 @@ import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Style;
-import com.mapbox.services.android.navigation.ui.v5.NavigationLauncher;
-import com.mapbox.services.android.navigation.ui.v5.NavigationLauncherOptions;
 import com.mapbox.services.android.navigation.v5.navigation.NavigationRoute;
 
 import org.jetbrains.annotations.NotNull;
@@ -54,14 +49,13 @@ public class walking_home extends AppCompatActivity implements OnMapReadyCallbac
 
     private MapboxMap mapboxMap;
     MapView mapView;
-    private PermissionsManager permissionsManager;
     LocationEngine locationEngine;
     private long DEFAULT_INTERVAL_IN_MILLISECONDS = 1000L;
     private long DEFAULT_MAX_WAIT_TIME = DEFAULT_INTERVAL_IN_MILLISECONDS;
     private MainActivityLocationCallback callback = new MainActivityLocationCallback(this);
-    int Navigation_allow = 0;
-    private ProgressDialog progressDialog;
-    private static DirectionsRoute currentRoute;
+    private int Navigation_allow = 0;
+    static DirectionsRoute currentRoute;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +89,7 @@ public class walking_home extends AppCompatActivity implements OnMapReadyCallbac
 
             initLocationEngine();
         } else {
-            permissionsManager = new PermissionsManager(this);
+            PermissionsManager permissionsManager = new PermissionsManager(this);
             permissionsManager.requestLocationPermissions(this);
         }
     }
@@ -118,9 +112,8 @@ public class walking_home extends AppCompatActivity implements OnMapReadyCallbac
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             buildAlertMessageNoGps();
-        }else{
-          //  show_progressDialog();
         }
+
     }
 
 
@@ -128,28 +121,12 @@ public class walking_home extends AppCompatActivity implements OnMapReadyCallbac
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Your GPS seems to be disabled, do you want to enable it for estimate time?")
                 .setCancelable(false)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int id) {
-                        walking_home.this.startActivityForResult(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS), 1);
-                    }
-                })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
+                .setPositiveButton("Yes", (dialog, id) -> walking_home.this.startActivityForResult(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS), 1))
+                .setNegativeButton("No", (dialog, id) -> dialog.cancel());
         final AlertDialog alert = builder.create();
         alert.show();
     }
 
-//    void show_progressDialog(){
-//        ProgressDialog progressDialog = new ProgressDialog(walking_home.this, R.style.MyAlertDialogStyle);
-//        progressDialog.setTitle("please wait preparing navigation");
-//        progressDialog.show();
-//        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-//    }
 
     @Override
     public void onExplanationNeeded(List<String> permissionsToExplain) {
@@ -229,8 +206,6 @@ public class walking_home extends AppCompatActivity implements OnMapReadyCallbac
                                 return;
                             }
                             currentRoute = response.body().routes().get(0);
-                            Log.d("ABC",currentRoute.toString());
-
 //                            if (currentRoute != null) {
 //                                progressDialog.dismiss();
 //                                NavigationLauncherOptions options = NavigationLauncherOptions.builder()
@@ -246,7 +221,6 @@ public class walking_home extends AppCompatActivity implements OnMapReadyCallbac
 
                         @Override
                         public void onFailure(@NotNull Call<DirectionsResponse> call, @NotNull Throwable throwable) {
-                            progressDialog.dismiss();
                         }
                     });
         }

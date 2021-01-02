@@ -100,15 +100,13 @@ public class home extends AppCompatActivity {
             }
         });
         notification();
-        Calories.child("zeeshan50522").addListenerForSingleValueEvent(new ValueEventListener() {
+        Calories.child(CommonFunction.userLogin).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot!=null) {
-                    if (dataSnapshot.getValue(Integer.class)!=null) {
-                        int cal = dataSnapshot.getValue(Integer.class);
-                        CommonFunction.cal = cal;
-                        current_cal.setText(String.valueOf(cal));
-                    }
+                if (dataSnapshot.getValue(Integer.class)!=null) {
+                    int cal = dataSnapshot.getValue(Integer.class);
+                    CommonFunction.cal = cal;
+                    current_cal.setText(String.valueOf(cal));
                 }
             }
 

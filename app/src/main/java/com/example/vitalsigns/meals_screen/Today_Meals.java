@@ -103,7 +103,7 @@ public class Today_Meals extends Fragment {
         adapter = new MealsAdapter(getContext(), meals);
         rv.setAdapter(adapter);
         rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        myRef.child("zeeshan50522").child("Breakfast").addValueEventListener(new ValueEventListener() {
+        myRef.child(CommonFunction.userLogin).child("Breakfast").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     ArrayList<MealToCalMap> items = new ArrayList<>();
@@ -124,7 +124,7 @@ public class Today_Meals extends Fragment {
             }
         });
 
-        myRef.child("zeeshan50522").child("Lunch").addValueEventListener(new ValueEventListener() {
+        myRef.child(CommonFunction.userLogin).child("Lunch").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 ArrayList<MealToCalMap> items = new ArrayList<>();
@@ -145,7 +145,7 @@ public class Today_Meals extends Fragment {
             }
         });
 
-        myRef.child("zeeshan50522").child("Dinner").addValueEventListener(new ValueEventListener() {
+        myRef.child(CommonFunction.userLogin).child("Dinner").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 ArrayList<MealToCalMap> items = new ArrayList<>();
@@ -167,7 +167,7 @@ public class Today_Meals extends Fragment {
         });
 
 
-        myRef.child("zeeshan50522").child("Lunch_Snack").addValueEventListener(new ValueEventListener() {
+        myRef.child(CommonFunction.userLogin).child("Lunch_Snack").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 ArrayList<MealToCalMap> items = new ArrayList<>();
@@ -189,7 +189,7 @@ public class Today_Meals extends Fragment {
         });
 
 
-        myRef.child("zeeshan50522").child("Midnight_Snack").addValueEventListener(new ValueEventListener() {
+        myRef.child(CommonFunction.userLogin).child("Midnight_Snack").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 ArrayList<MealToCalMap> items = new ArrayList<>();

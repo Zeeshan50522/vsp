@@ -100,7 +100,7 @@ public class Meal extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Calories.child("zeeshan50522").setValue(CommonFunction.totalCalories);
+                Calories.child(CommonFunction.userLogin).setValue(CommonFunction.totalCalories);
                 Intent i = new Intent(Meal.this , home.class );
                 startActivity(i);
             }
@@ -128,6 +128,6 @@ public class Meal extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Calories.child("zeeshan50522").setValue(CommonFunction.totalCalories);
+        Calories.child(CommonFunction.userLogin).setValue(CommonFunction.totalCalories);
     }
 }

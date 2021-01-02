@@ -61,7 +61,6 @@ public class heart_rate extends AppCompatActivity {
     private BpmAdapter BpmAdapter;
     LineGraphSeries<DataPoint> series;
     private LineChart lineChart;
-    private FirebaseDatabase database;
     private DatabaseReference myRef;
     ArrayList<Entry> current;
     ArrayList<Entry> predicted;
@@ -77,7 +76,7 @@ public class heart_rate extends AppCompatActivity {
         current = new ArrayList<>();
         predicted = new ArrayList<>();
 //
-        database = FirebaseDatabase.getInstance("https://vitalsignsproject-5f6d8-default-rtdb.firebaseio.com/");
+        FirebaseDatabase database = FirebaseDatabase.getInstance("https://vitalsignsproject-5f6d8-default-rtdb.firebaseio.com/");
         myRef = database.getReference();
         bpmValue = new ArrayList<>();
         BpmAdapter = new BpmAdapter(bpmValue);
@@ -157,7 +156,7 @@ public class heart_rate extends AppCompatActivity {
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
-                                 myRef.child("zeeshan50522").push().setValue(bpm_model);
+                                 myRef.child(CommonFunction.userLogin).push().setValue(bpm_model);
                                 BpmAdapter.notifyDataSetChanged();
                             }
                         }

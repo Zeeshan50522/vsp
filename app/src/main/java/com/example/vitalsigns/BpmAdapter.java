@@ -41,7 +41,7 @@ public class BpmAdapter extends RecyclerView.Adapter <BpmAdapter.BpmAdapterHolde
         return mylist.size();
     }
 
-    public class BpmAdapterHolder extends RecyclerView.ViewHolder {
+    public static class BpmAdapterHolder extends RecyclerView.ViewHolder {
         TextView bpm_value;
         TextView start_time;
         TextView end_time;

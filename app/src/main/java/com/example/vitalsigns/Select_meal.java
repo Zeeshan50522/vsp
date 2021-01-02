@@ -83,17 +83,14 @@ public class Select_meal extends AppCompatActivity {
         rv.setAdapter(adapter);
         rv.setLayoutManager(new LinearLayoutManager(this.getApplicationContext()));
 
-        add_meal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        add_meal.setOnClickListener(v -> {
 
-                ArrayList<MealSelectRowModal> selected = adapter.getSelected_items();
-                for (int i=0 ; i<selected.size() ; i++){
-                    myRef.child("TodayMeal").child("zeeshan50522").child(passedArg).push().setValue(selected.get(i));
-                }
-                Intent i = new Intent(Select_meal.this , Meal.class);
-                startActivity(i);
+            ArrayList<MealSelectRowModal> selected = adapter.getSelected_items();
+            for (int i=0 ; i<selected.size() ; i++){
+                myRef.child("TodayMeal").child(CommonFunction.userLogin).child(passedArg).push().setValue(selected.get(i));
             }
+            Intent i = new Intent(Select_meal.this , Meal.class);
+            startActivity(i);
         });
 
     }

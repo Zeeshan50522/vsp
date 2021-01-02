@@ -52,11 +52,9 @@ public class create_new_account extends AppCompatActivity {
             }
 
         };
-        dateBirth.setOnClickListener(view -> {
-            new DatePickerDialog(create_new_account.this, date, dateOfBirth
-                    .get(Calendar.YEAR), dateOfBirth.get(Calendar.MONTH),
-                    dateOfBirth.get(Calendar.DAY_OF_MONTH)).show();
-        });
+        dateBirth.setOnClickListener(view -> new DatePickerDialog(create_new_account.this, date, dateOfBirth
+                .get(Calendar.YEAR), dateOfBirth.get(Calendar.MONTH),
+                dateOfBirth.get(Calendar.DAY_OF_MONTH)).show());
 
 
         account_created.setOnClickListener(view -> {
