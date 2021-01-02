@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "120896011952",
+    "project_id": "vitalsignsproject-5f6d8",
+    "storage_bucket": "vitalsignsproject-5f6d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:120896011952:android:6d707b5519579a00ce4575",
+        "android_client_info": {
+          "package_name": "com.example.vitalsigns"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "120896011952-94290cpc5i4cu42rb8of73p48hospehr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeUs2PnEXD11zRUpnpbn-npmxOPzYgIOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "120896011952-94290cpc5i4cu42rb8of73p48hospehr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

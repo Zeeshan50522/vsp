@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context=".basic_information">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.2"
+        android:background="#e6e6e6">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Height and Weight"
+            android:layout_marginTop="20dp"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:textSize="20sp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3.4">
+
+        <TextView
+            android:id="@+id/height_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Your Height in feet"
+            android:layout_marginTop="20dp"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:textSize="20sp"/>
+
+        <NumberPicker
+            android:id="@+id/numberPicker"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/height_text"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"/>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3.4">
+
+        <TextView
+            android:id="@+id/weight_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Your Weight in kg"
+            android:layout_marginTop="20dp"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:textSize="20sp"/>
+
+        <NumberPicker
+            android:id="@+id/numberPicker_weight"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/weight_text"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+        <Button
+            android:id="@+id/submit_height_and_weight"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:text="Submit"
+            android:textColor="@android:color/white"
+            android:background="@drawable/login_button"/>
+    </RelativeLayout>
+
+</LinearLayout>

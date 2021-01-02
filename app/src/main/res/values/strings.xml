@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">VitalsignsProject</string>
+    <string name="access_token">pk.eyJ1IjoiemVlc2hhbjUwNTIyIiwiYSI6ImNraXhvZ3liMTNoMmoyd3AzdXhnMmhiMTIifQ.TKQG5dVWoXVqDmH1CSmWBQ</string>
+    <string name="todo">TODO</string>
+</resources>
